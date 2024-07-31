@@ -20,7 +20,7 @@ const CreatePost = () => {
     if(form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        const response = await fetch('https://vision-backend.onrender.com/api/v1/dalle', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('http://localhost:8080/api/v1/post', {
+        const response = await fetch('https://vision-backend.onrender.com/api/v1/post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -78,8 +78,8 @@ const CreatePost = () => {
   return (
     <section className='max-w-7xl mx-auto'>
       <div>
-        <h1 className='font-extrabold text-[#222328] text-[32px]'>The Community Showcase</h1>
-        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>Create imaginative and visually stunning images through DALL-E AI and share them with the community</p>
+        <h1 className='font-extrabold text-white text-[32px]'>The Community Showcase</h1>
+        <p className="mt-2 text-[#efefef] text-[14px] max-w-[500px]">Create imaginative and visually stunning images through DALL-E AI and share them with the community</p>
         </div>
 
         <form className='mt-16 max-w-3xl' onSubmit={handleSubmit}>
@@ -104,14 +104,14 @@ const CreatePost = () => {
              handleSurpriseMe={handleSurpriseMe}
             />
 
-            <div className='relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center'>
+            <div className='relative bg-gray-100 border border-[#000] text-[#efefef] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center'>
               {form.photo ? (
                 <img 
                 src={form.photo} 
                 alt={form.prompt}
                 className='w-full h-full object-contain'
                 />
-              ): (
+              ): (   
                 <img 
                 src={preview}
                 alt='preview'
